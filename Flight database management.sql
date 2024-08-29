@@ -38,3 +38,15 @@ inner join film as f
 on f.film_id = i.film_id
 group by f.title, first_name, Last_name
 order by count(*) desc
+
+-- Challenge 4:
+-- getting the list of passengers from 'Brazil'
+select first_name, last_name, email, country.country
+from customer
+left join address
+on customer.address_id = address.address_id
+inner join city
+on city.city_id = address.city_id
+inner join country
+on country.country_id = city.country_id
+and country.country = 'Brazil'
